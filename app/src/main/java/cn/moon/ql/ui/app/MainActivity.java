@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
             List<QLEnvData> envDataList1 = qlApiClient.listEnv(JD_COOKIE, qlStoreData.getSettingsData(), qlStoreData.getLoginData());
             Integer[] ids= new Integer[envDataList1.size()];
             for (QLEnvData envData : envDataList) {
-                ids.add(envData.getId());)
+                ids.add(envData.getId());
             } 
             qlApiClient.enableEnv(updateEnv, ids, qlStoreData.getLoginData());
             info(String.format("🎉启用JDCookie【%s】成功", jdCookie.getPtPin()));
