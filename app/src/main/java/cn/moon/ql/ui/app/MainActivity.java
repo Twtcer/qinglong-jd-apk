@@ -12,6 +12,7 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -171,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
             
             // update env status from disable=>enable 
             List<QLEnvData> envDataList1 = qlApiClient.listEnv(JD_COOKIE, qlStoreData.getSettingsData(), qlStoreData.getLoginData());
-            Integer[] ids= new Integer[envDataList1.size()];
+            List<Integer> ids = new ArrayList<Integer>();
             for (QLEnvData envData : envDataList) {
                 ids.add(envData.getId());
             } 

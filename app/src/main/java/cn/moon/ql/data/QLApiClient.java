@@ -67,7 +67,7 @@ public class QLApiClient {
         this.doRequest(settingsData.getUrl(), "/open/envs", "PUT", envData.toJsonString(), loginData.toAuthValue());
     }
 
-    public void enableEnv(QLEnvData envData, Integer[] ids, QLLoginData loginData) throws Exception {
+    public void enableEnv(QLEnvData envData, List<Integer> ids, QLLoginData loginData) throws Exception {
         this.doRequest(settingsData.getUrl(), "/open/envs/enable", "PUT", ids, loginData.toAuthValue());
     }
 
