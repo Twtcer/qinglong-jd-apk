@@ -12,6 +12,7 @@ public class QLEnvData {
     private String name;
     private String value;
     private String remarks;
+    private Integer status;
 
     public QLEnvData(String name, String value) {
         this.name = name;
@@ -30,11 +31,12 @@ public class QLEnvData {
         this.value = value;
     }
 
-    public QLEnvData(Integer id, String name, String value, String remarks) {
+    public QLEnvData(Integer id, String name, String value, String remarks, Integer status) {
         this.id = id;
         this.name = name;
         this.value = value;
         this.remarks = remarks;
+        this.status = status;
     }
 
     public void setId(Integer id) {
@@ -45,6 +47,14 @@ public class QLEnvData {
         return id;
     }
 
+    public void setStatus(Integer s) {
+        this.status = s;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+  
     public String getName() {
         return name;
     }

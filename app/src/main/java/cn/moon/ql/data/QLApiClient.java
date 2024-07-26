@@ -45,10 +45,13 @@ public class QLApiClient {
         }
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject jo = jsonArray.getJSONObject(i);
-            QLEnvData envData = new QLEnvData(jo.getInt("id"),
+            QLEnvData envData = new QLEnvData(
+                    jo.getInt("id"),
                     jo.getString("name"),
                     jo.getString("value"),
-                    jo.getString("remarks"));
+                    jo.getString("remarks"),
+                    jo.getInt("status")
+                    );
             envList.add(envData);
         }
         return envList;
@@ -62,6 +65,10 @@ public class QLApiClient {
 
     public void updateEnv(QLEnvData envData, QLSettingsData settingsData, QLLoginData loginData) throws Exception {
         this.doRequest(settingsData.getUrl(), "/open/envs", "PUT", envData.toJsonString(), loginData.toAuthValue());
+    }
+
+    public void enableEnv(QLEnvData envData, Integer[] ids, QLLoginData loginData) throws Exception {
+        this.doRequest(settingsData.getUrl(), "/open/envs/enable", "PUT", ids, loginData.toAuthValue());
     }
 
     private Object doRequest(String url, String uri, String method, String content, String authStr) throws Exception {
