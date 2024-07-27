@@ -172,11 +172,11 @@ public class MainActivity extends AppCompatActivity {
             
             // update env status from disable=>enable 
             List<QLEnvData> envDataList1 = qlApiClient.listEnv(JD_COOKIE, qlStoreData.getSettingsData(), qlStoreData.getLoginData());
-            List<Integer> ids = new ArrayList<Integer>();
+            List ids = new ArrayList();
             for (QLEnvData envData : envDataList) {
                 ids.add(envData.getId());
             } 
-            qlApiClient.enableEnv(updateEnv, ids, qlStoreData.getLoginData());
+            qlApiClient.enableEnv(updateEnv, ids.toArray(), qlStoreData.getLoginData());
             info(String.format("🎉启用JDCookie【%s】成功", jdCookie.getPtPin()));
 
         } catch (Exception e) {
