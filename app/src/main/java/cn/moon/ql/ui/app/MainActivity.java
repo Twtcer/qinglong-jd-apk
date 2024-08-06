@@ -168,16 +168,22 @@ public class MainActivity extends AppCompatActivity {
                 updateEnv.setId(id);
                 qlApiClient.updateEnv(updateEnv, qlStoreData.getSettingsData(), qlStoreData.getLoginData());
                 info(String.format("🎉更新JDCookie【%s】成功", jdCookie.getPtPin()));
+                List ids = new ArrayList();
+                for (QLEnvData envData : envDataList) {
+                    ids.add(id);
+                }
+                qlApiClient.enableEnv(updateEnv, ids.toArray(), qlStoreData.getLoginData());
+                info(String.format("🎉启用JDCookie【%s】成功", jdCookie.getPtPin()));
             }
             
             // update env status from disable=>enable 
-            List<QLEnvData> envDataList1 = qlApiClient.listEnv(JD_COOKIE, qlStoreData.getSettingsData(), qlStoreData.getLoginData());
-            List ids = new ArrayList();
-            for (QLEnvData envData : envDataList) {
-                ids.add(envData.getId());
-            } 
-            qlApiClient.enableEnv(updateEnv, ids.toArray(), qlStoreData.getLoginData());
-            info(String.format("🎉启用JDCookie【%s】成功", jdCookie.getPtPin()));
+            // List<QLEnvData> envDataList1 = qlApiClient.listEnv(JD_COOKIE, qlStoreData.getSettingsData(), qlStoreData.getLoginData());
+            // List ids = new ArrayList();
+            // for (QLEnvData envData : envDataList) {
+            //     ids.add(envData.getId());
+            // } 
+            // qlApiClient.enableEnv(updateEnv, ids.toArray(), qlStoreData.getLoginData());
+            // info(String.format("🎉启用JDCookie【%s】成功", jdCookie.getPtPin()));
 
         } catch (Exception e) {
             MainActivity.this.err(String.format("☹️更新JDCookie【%s】失败", jdCookie.getPtPin()));
