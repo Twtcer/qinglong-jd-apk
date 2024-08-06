@@ -167,12 +167,8 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 updateEnv.setId(id);
                 qlApiClient.updateEnv(updateEnv, qlStoreData.getSettingsData(), qlStoreData.getLoginData());
-                info(String.format("🎉更新JDCookie【%s】成功", jdCookie.getPtPin()));
-                List ids = new ArrayList();
-                for (QLEnvData envData : envDataList) {
-                    ids.add(id);
-                }
-                qlApiClient.enableEnv(updateEnv, ids.toArray(), qlStoreData.getLoginData());
+                info(String.format("🎉更新JDCookie【%s】成功", jdCookie.getPtPin())); 
+                qlApiClient.enableEnv(updateEnv, "["+id+"]", qlStoreData.getLoginData());
                 info(String.format("🎉启用JDCookie【%s】成功", jdCookie.getPtPin()));
             }
             
