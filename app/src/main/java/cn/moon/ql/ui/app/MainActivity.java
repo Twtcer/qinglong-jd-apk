@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
                 updateEnv.setId(id);
                 qlApiClient.updateEnv(updateEnv, qlStoreData.getSettingsData(), qlStoreData.getLoginData());
                 info(String.format("🎉更新JDCookie【%s】成功", jdCookie.getPtPin())); 
-                qlApiClient.enableEnv(updateEnv, "["+id+"]", qlStoreData.getLoginData());
+                qlApiClient.enableEnv(updateEnv, qlStoreData.getSettingsData(),"["+id+"]", qlStoreData.getLoginData());
                 info(String.format("🎉启用JDCookie【%s】成功", jdCookie.getPtPin()));
             }
             
