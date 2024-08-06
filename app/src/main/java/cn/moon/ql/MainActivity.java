@@ -153,7 +153,9 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         param.put("id", id);
                         api.update(param);
-                        info("Id：" + id + " " + finalPin + "更新成功");
+                        info("Id：" + id + " " + finalPin + "更新成功"); 
+                        api.enableEnv("["+id+"]");
+                        info(String.format("🎉启用JDCookie【%s】成功", jdCookie.getPtPin()));
                     }
                 } catch (Exception e) {
                     MainActivity.this.err(e);

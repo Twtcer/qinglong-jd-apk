@@ -48,6 +48,9 @@ public class QLApi {
         this.send("/open/envs", "PUT", obj.toString());
     }
 
+    public void enableEnv(String ids) throws Exception {
+        this.send("/open/envs/enable", "PUT", ids);
+    } 
 
     private Object send(String uri, String method, String content) throws Exception {
         if(QL_URL == null || QL_URL.isEmpty()){
